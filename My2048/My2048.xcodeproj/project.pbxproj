@@ -15,7 +15,7 @@
 		04FF158D1CE24D800094B511 /* My2048Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FF158C1CE24D800094B511 /* My2048Tests.swift */; };
 		04FF15981CE24D800094B511 /* My2048UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FF15971CE24D800094B511 /* My2048UITests.swift */; };
 		04FF15A71CE2507B0094B511 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FF15A61CE2507B0094B511 /* Game.swift */; };
-		04FF15A91CE2508D0094B511 /* Apperance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FF15A81CE2508D0094B511 /* Apperance.swift */; };
+		04FF15A91CE2508D0094B511 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FF15A81CE2508D0094B511 /* Appearance.swift */; };
 		04FF15AB1CE250A80094B511 /* AuxMoDEL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FF15AA1CE250A80094B511 /* AuxMoDEL.swift */; };
 		04FF15AE1CE250CA0094B511 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FF15AD1CE250CA0094B511 /* GameModel.swift */; };
 		04FF15B11CE250EC0094B511 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FF15B01CE250EC0094B511 /* Board.swift */; };
@@ -55,7 +55,7 @@
 		04FF15971CE24D800094B511 /* My2048UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = My2048UITests.swift; sourceTree = "<group>"; };
 		04FF15991CE24D800094B511 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04FF15A61CE2507B0094B511 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
-		04FF15A81CE2508D0094B511 /* Apperance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Apperance.swift; sourceTree = "<group>"; };
+		04FF15A81CE2508D0094B511 /* Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		04FF15AA1CE250A80094B511 /* AuxMoDEL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuxMoDEL.swift; sourceTree = "<group>"; };
 		04FF15AD1CE250CA0094B511 /* GameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		04FF15B01CE250EC0094B511 /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
@@ -112,7 +112,6 @@
 			isa = PBXGroup;
 			children = (
 				04FF15A51CE24F710094B511 /* Assets */,
-				04FF15791CE24D800094B511 /* ViewController.swift */,
 				04FF15B61CE251130094B511 /* View */,
 				04FF15AC1CE250B20094B511 /* Game */,
 				04FF15AF1CE250CF0094B511 /* Model */,
@@ -141,6 +140,7 @@
 		04FF15A51CE24F710094B511 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				04FF15791CE24D800094B511 /* ViewController.swift */,
 				04FF15771CE24D800094B511 /* AppDelegate.swift */,
 				04FF157B1CE24D800094B511 /* Main.storyboard */,
 				04FF157E1CE24D800094B511 /* Assets.xcassets */,
@@ -154,7 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				04FF15A61CE2507B0094B511 /* Game.swift */,
-				04FF15A81CE2508D0094B511 /* Apperance.swift */,
+				04FF15A81CE2508D0094B511 /* Appearance.swift */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -310,7 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04FF157A1CE24D800094B511 /* ViewController.swift in Sources */,
-				04FF15A91CE2508D0094B511 /* Apperance.swift in Sources */,
+				04FF15A91CE2508D0094B511 /* Appearance.swift in Sources */,
 				04FF15AB1CE250A80094B511 /* AuxMoDEL.swift in Sources */,
 				04FF15B31CE250F90094B511 /* Tile.swift in Sources */,
 				04FF15A71CE2507B0094B511 /* Game.swift in Sources */,
@@ -542,6 +542,7 @@
 				04FF159E1CE24D800094B511 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		04FF159F1CE24D800094B511 /* Build configuration list for PBXNativeTarget "My2048Tests" */ = {
 			isa = XCConfigurationList;
@@ -550,6 +551,7 @@
 				04FF15A11CE24D800094B511 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		04FF15A21CE24D800094B511 /* Build configuration list for PBXNativeTarget "My2048UITests" */ = {
 			isa = XCConfigurationList;
@@ -558,6 +560,7 @@
 				04FF15A41CE24D800094B511 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
