@@ -9,6 +9,7 @@
 import UIKit
 //protocol? :class? 两个疑问
 
+//辅助用，游戏颜色的变化
 protocol AppearanceProtocol: class {
     //三个函数，分别对应title的颜色，number的颜色和font的颜色
     func tileColor(value: Int) -> UIColor

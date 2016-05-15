@@ -18,6 +18,7 @@ protocol  GameModelProtocol : class {
  }
 
 class GameModel: NSObject {
+    //面板大小
     let dimensipon: Int
     let threshold: Int
 
@@ -32,7 +33,8 @@ class GameModel: NSObject {
     
     let delegate: GameModelProtocol
     
-    var queue: [moveCommand]
+    //定义了移动命令的数组作为
+    var queue: [MoveCommand]
     var timer: NSTimer
     
     let maxCommands = 100
@@ -42,7 +44,7 @@ class GameModel: NSObject {
         dimensipon = d
         threshold = t
         self.delegate = delegate
-        queue = [moveCommand]()
+        queue = [MoveCommand]()
             timer = NSTimer()
         gameboard = SquareGameboard(dimensipon: d, initvalue: .Empty)
         super.init()
@@ -53,5 +55,22 @@ class GameModel: NSObject {
         gameboard.setAll(.Empty)
         queue.removeAll(keepCapacity: true)
         timer.invalidate()
-}
+    }
+    
+    func queueMoved(direction:MoveDirection, completition: (Bool) ->()) {
+        if queue.count > maxCommands {
+            return
+        }
+        
+        let command = MoveCommand(d: direction, c: completion)
+        queue.append(command)
+        if(!timer.valid) {
+            timerFired(timer)
+        }
+    }
+    
+    func timerFired(timer: )
+    
+    
+    }
 }

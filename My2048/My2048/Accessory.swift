@@ -10,11 +10,11 @@ import UIKit
 protocol ScoreViewProtocol {
     func scoreChanged(newScore s: Int)
 }
-
+//score属性为当前游戏得分
 class ScoreView: UIView, ScoreViewProtocol {
     var score:Int = 0{
         didSet{
-            //显示当前游戏得分
+            //用didset监视变化，用label显示得分
             label.text = "SCORE: \(score)"
         }
     }
@@ -39,7 +39,7 @@ class ScoreView: UIView, ScoreViewProtocol {
     required init(coder aDecoder: NSCoder){
         fatalError("NSCoding not supported")
     }
-    
+    //函数用于改变显示的分数
     func scoreChanged(newScore s: Int) {
         let defaultFrame = CGRectMake(0 , 0 , 140, 140)
     }
