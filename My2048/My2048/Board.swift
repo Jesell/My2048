@@ -12,16 +12,20 @@ class Board : UIView {
     var tileWidth: CGFloat
     var tilePadding: CGFloat
     var cornerRadius: CGFloat
+    //将所有的tile存在一个dictionary中
     var tiles: Dictionary<NSIndexPath, Tile>
     
+    //控制颜色用
     let provider = Appearance()
     
+    //控制动画用
     let tilePoStartScale: CGFloat = 1.0
     let tileMergeExpandTime: NSTimeInterval= 0.08
     let tileMergeContractTime: NSTimeInterval = 0.08
     
     let perSquareSlideDuration: NSTimeInterval = 0.08
     
+    //初始化
     init(dimension d: Int, tilewidth width: CGFloat, tilePadding padding: CGFloat, cornRadius radius: CGFloat, backgroundColor: UIColor, foregroundColor: UIColor){
         assert(d>0)
         dimension=d
@@ -32,6 +36,7 @@ class Board : UIView {
         let sideLength = padding + CGFloat(dimension)*(width + padding)
         super.init(frame: CGRectMake(0, 0, sideLength, sideLength))
         layer.cornerRadius = radius
+        //九宫格布局创建方法
         setupBackground(backgroundColor: backgroundColor, tileColor: foregroundColor)
         
     }
