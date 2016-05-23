@@ -54,6 +54,14 @@ class Board : UIView {
     }
     
     //
+    func positionIsVaild(pos: (Int,Int))-> Bool {
+        let (x,y) = pos
+        return(x >= 0 && x < dimension && y>= 0 && y < dimension)
+    }
+    
+    func setBackground(backgroundColor bgColor: UIColor, tileColor: UIColor) {
+        backgroundColor = bgColor
+    }
 }
 
 
