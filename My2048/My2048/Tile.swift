@@ -30,7 +30,7 @@ class Tile: UIView {
         fatalError("NSCoding not supported")
     }
     //初始化位置长宽等系数
-    init(position:CGPoint,width:CGFloat,value:Int,radius:Cf=GL_FLOAT,delegate d:UIAppearanceProtocol){
+    init(position: CGPoint,width: CGFloat,value: Int,radius: CGFloat, delegate:AppearanceProtocol){
         addSubview(numberLabel)
         layer.cornerRadius=radius
         //获取当前值value
