@@ -98,6 +98,7 @@ class Board : UIView {
         
         //CGpoint 二维坐标的点。Tile函数可见其初始化
         let tile = Tile(position:CGPointMake(x, y), width:tileWidth, value: value, radius: r , delegate: provider)
+        tile.layer.setAffineTransform(CGAffineTransformMakeScale(tilePoStartScale,tilePoStartScale))
         
         
         
