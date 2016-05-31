@@ -25,7 +25,7 @@ class Board : UIView {
     
     //控制动画用
     let tilePoStartScale: CGFloat = 1.0
-    let tileMergeExpandTime: NSTimeInterval= 0.08
+    let tileMergeExpandTime: NSTimeInterval = 0.08
     let tileMergeContractTime: NSTimeInterval = 0.08
     
     let perSquareSlideDuration: NSTimeInterval = 0.08
@@ -45,7 +45,7 @@ class Board : UIView {
         super.init(frame: CGRectMake(0, 0, sideLength, sideLength))
         layer.cornerRadius = radius
         //九宫格布局创建方法
-        setupBackground(backgroundColor: backgroundColor, tileColor: foregroundColor)
+        setBackground(backgroundColor: backgroundColor, tileColor: foregroundColor)
         
     }
     
@@ -61,10 +61,10 @@ class Board : UIView {
         tiles.removeAll(keepCapacity: true)
     }
     
-    //
+    //判断点是否是有效的点
     func positionIsVaild(pos: (Int,Int))-> Bool {
         let (x,y) = pos
-        return(x >= 0 && x < dimension && y>= 0 && y < dimension)
+        return(x >= 0 && x < dimension && y>=0 && y < dimension)
     }
     
     //九宫格创建法
@@ -73,7 +73,7 @@ class Board : UIView {
         backgroundColor = bgColor
         var xCursor = tilePadding
         var yCursor: CGFloat
-        let bgRadius = (cornerRadius > = 2) ? cornerRadius - 2 :0
+        let bgRadius = (cornerRadius >= 2) ? (cornerRadius - 2) : 0
         for i in 0..<dimension{
             yCursor = tilePadding
             for j in 0..<dimension{
@@ -89,8 +89,11 @@ class Board : UIView {
         }
     }
     
+    //插入新的格子
     func insertTiles(pos: (Int,Int), value: Int){
+        //使用断言进行异常处理
         assert(positionIsVaild(pos))
+        
         let (row,col) = pos
         let x = tilePadding + CGFloat(col)*(tileWidth+tilePadding)
         let y = tilePadding + CGFloat(row)*(tileWidth+tilePadding)
