@@ -64,7 +64,7 @@ class Board : UIView {
     //判断点是否是有效的点
     func positionIsVaild(pos: (Int,Int))-> Bool {
         let (x,y) = pos
-        return(x >= 0 && x < dimension && y>=0 && y < dimension)
+        return(x >= 0 && x < dimension && y >= 0 && y < dimension)
     }
     
     //九宫格创建法
@@ -76,14 +76,10 @@ class Board : UIView {
         let bgRadius = (cornerRadius >= 2) ? (cornerRadius - 2) : 0
         for i in 0..<dimension{
             yCursor = tilePadding
-            for j in 0..<dimension{
-                //draw dech tile
-                let background = UIView(frame: CGRectMake(xCursor, yCursor, tileWidth, tileWidth))
-                background.layer.cornerRadius = bgRadius
-                background.backgroundColor = bgColor
-                addSubview(background)
-                yCursor = tileWidth+tilePadding
-            }
+            
+            //dimension代表矩阵的大小
+            for j in 0..<dimension
+            
             xCursor += tilePadding+tileWidth
             
         }
