@@ -24,9 +24,16 @@ class Board : UIView {
     let provider = Appearance()
     
     //控制动画用
-    let tilePoStartScale: CGFloat = 1.0
-    let tileMergeExpandTime: NSTimeInterval = 0.08
-    let tileMergeContractTime: NSTimeInterval = 0.08
+    let tileMergeStartScale : CGFloat = 1.0
+    let tileMergeExpandTime : NSTimeInterval = 0.08
+    let tileMergeContractTime : NSTimeInterval = 0.08
+    
+    let tilePopStartScale: CGFloat = 0.1
+    let tilePopMaxScale: CGFloat = 1.1
+    let tilePopDelay: NSTimeInterval = 0.05
+    let tileExpandTime: NSTimeInterval = 0.18
+    let tileContractTime: NSTimeInterval = 0.08
+    
     
     let perSquareSlideDuration: NSTimeInterval = 0.08
     
@@ -41,7 +48,7 @@ class Board : UIView {
         
         //边长定义不太理解
         let sideLength = padding + CGFloat(dimension)*(width + padding)
-        //cgrectmake 定点，左上角 宽 高
+        //cgrectmake x坐标 y坐标 宽 高
         super.init(frame: CGRectMake(0, 0, sideLength, sideLength))
         layer.cornerRadius = radius
         //九宫格布局创建方法
@@ -76,10 +83,15 @@ class Board : UIView {
         let bgRadius = (cornerRadius >= 2) ? (cornerRadius - 2) : 0
         for i in 0..<dimension{
             yCursor = tilePadding
-            
             //dimension代表矩阵的大小
-            for j in 0..<dimension
-            
+            for j in 0..<dimension{
+            //画出每个格子
+            let background = UIView(frame: CGRectMake(xCursor, yCursor, tileWidth,tileWidth))
+                background.layer.cornerRadius = bgRadius
+                background.backgroundColor = tileColor
+                addSubview(background)
+                yCursor += tilePadding + tileWidth
+            }
             xCursor += tilePadding+tileWidth
             
         }
@@ -97,7 +109,31 @@ class Board : UIView {
         
         //CGpoint 二维坐标的点。Tile函数可见其初始化
         let tile = Tile(position:CGPointMake(x, y), width:tileWidth, value: value, radius: r , delegate: provider)
-        tile.layer.setAffineTransform(CGAffineTransformMakeScale(tilePoStartScale,tilePoStartScale))
+        tile.layer.setAffineTransform(CGAffineTransformMakeScale(tilePopStartScale,tilePopStartScale))
+        
+        addSubview(tile)
+        bringSubviewToFront(tile)
+        tiles[NSIndexPath(forRow: row, inSection: col)] = tile
+        
+        //add to the board
+        UIView.animateWithDuration(tileExpandTime, delay: tilePopDelay, options:UIViewAnimationOptions.TransitionNone,
+            animations:
+                {
+                    () ->Void in
+            //make tile 'pop'
+                    tile.layer.setAffineTransform(CGAffineTransformMakeScale(self.tilePopMaxScale, self.tilePopStartScale))
+                },
+            completion: {( finished: Bool) -> Void in
+            //Shrink the tile after it 'pops'
+                UIView.animateWithDuration(self.tileContractTime, animations:{ ()->Void in
+                    tile.layer.setAffineTransform(CGAffineTransformIdentity)
+                    })
+        })
+        
+        //Update the gameboard by moving a single tile from one location to another. if the move is going to collapse two 
+        //tiles into a new tile , the tile will 'pop' after moving to its new location
+        
+        
         
         
         
